@@ -4,10 +4,11 @@
 
 ## 开始之前
 
-1. 从 `main` 创建功能分支。
-2. 使用 Node.js 20+ 与 pnpm。
-3. 运行 `pnpm install --frozen-lockfile` 安装依赖。
-4. 提交前运行 `pnpm verify`。
+1. 分支模型：`main` 为稳定/发布分支，`dev` 为集成分支；功能开发从 `dev` 创建 `feat-<topic>`、`fix-<topic>` 或 `chore-<topic>` 分支。
+2. 开发完成后向 `dev` 提 PR，CI `verify` 通过后合并；发布时再向 `main` 提 PR，合并后在 `main` 打 tag。
+3. 使用 Node.js 20+ 与 pnpm。
+4. 运行 `pnpm install --frozen-lockfile` 安装依赖。
+5. 提交前运行 `pnpm verify`。
 
 ## 开源版边界
 

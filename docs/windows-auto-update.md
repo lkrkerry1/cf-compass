@@ -18,6 +18,10 @@ v4.3.1 首次提供 Windows 安装版内置更新。v4.2.2 及更早版本没有
 
 v4.3.1 introduces in-app updates for Windows installer editions. Windows v4.2.2 and older have no updater or Windows update metadata. First manually install the v4.3.1 `Setup.exe` from the [official stable release page](https://github.com/lkrkerry1/cf-compass/releases/latest); the in-app updater can then obtain later stable releases.
 
+原仓库 `Binah-Dev/cf-compass` 及账号已删除，v4.3.4 及更早版本内置的更新源随之失效，应用内检查更新会失败。请从[本仓库稳定发布页](https://github.com/lkrkerry1/cf-compass/releases/latest)手动下载 v4.3.5 或更新版本的 `Setup.exe` 覆盖安装；应用 ID、安装 GUID 与用户数据目录不变，本地学习数据会保留。迁移前建议先在数据中心导出备份。自本仓库发布的版本起，更新源为 `lkrkerry1/cf-compass`。
+
+The original repository `Binah-Dev/cf-compass` and its account were deleted, so the update feed embedded in v4.3.4 and older no longer exists and in-app update checks fail. Manually download the v4.3.5 or newer `Setup.exe` from the [stable release page](https://github.com/lkrkerry1/cf-compass/releases/latest) and install it over the old version. The app ID, installer GUID, and user-data directory are unchanged, so local study data is retained. Export a backup from Data Center before migrating. Releases from this repository use the `lkrkerry1/cf-compass` update feed.
+
 ## 来源与校验 / Source and verification
 
 更新源固定为 `lkrkerry1/cf-compass` 的公开 GitHub 稳定发布。界面不能设置任意下载服务器，不需要 GitHub 令牌，也不上传训练记录。只接受比当前版本新的正式 `x.y.z` 版本，以及对应的 Windows x64 `Setup.exe`；预发布、降级、便携包和 NSIS Web 安装包不用于本入口。

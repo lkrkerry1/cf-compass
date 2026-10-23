@@ -40,9 +40,9 @@
 
 <p align="center"><sub>题库工作台 · 天空蓝主题 · 仓库内置虚构演示数据</sub></p>
 
-## 当前版本：v4.3.4
+## 当前版本：v4.3.5
 
-v4.3.4 修复虚拟赛提交时间 ±1 秒偏差导致整场无法估分的问题（#45），并保留计划题单计时表、自定义训练赛与 Windows 安装版更新；下载入口见 [Latest Release](https://github.com/lkrkerry1/cf-compass/releases/latest)。
+v4.3.5 是本仓库的首个正式发布，代码与 v4.3.4 一致（包含虚拟赛 ±1 秒时间戳修复 #45），并补齐发布流程与从原仓库迁移的说明；下载入口见 [Latest Release](https://github.com/lkrkerry1/cf-compass/releases/latest)。
 
 - **虚拟赛估分修复**：允许 CF 绝对提交时间与相对时间存在 ±1 秒取整偏差，时间校验与计分共用绝对时间；此前失败的虚拟场次可在「赛事复盘 → 虚拟参赛」点击「重新估分」。详见 [v4.3.4 发布说明](./docs/releases/v4.3.4.md)。
 - **计划题单计时表**：在「计划题单 → 计时表」打开独立窗口，使用正向、反向或定点计时；只有定点模式响铃，支持有播放上限的默认短铃声和本地音频。用法与恢复边界见 [计时表说明](./docs/study-timer.md)。
@@ -64,7 +64,7 @@ Ubuntu / Debian 用户优先选择 `.deb`。受用户命名空间限制的 Ubunt
 | 全局学习记录 | 在题库、今日训练、复习、比赛和推荐结果中使用同一套笔记与目标题单。 |
 | 可定制桌面工作台 | 隐藏、恢复和调整左侧功能入口顺序，切换字号与全页赛事复盘布局。 |
 
-完整变化见 [v4.3.4 发布说明](./docs/releases/v4.3.4.md)。Linux 分发的历史验证见 [v4.2.2 发布说明](./docs/releases/v4.2.2.md)，既有功能见 [v4.0.0 功能说明](./docs/releases/v4.0.0.md)。
+本版本无功能变更，完整说明见 [v4.3.5 发布说明](./docs/releases/v4.3.5.md)，此前的虚拟赛修复见 [v4.3.4 发布说明](./docs/releases/v4.3.4.md)。Linux 分发的历史验证见 [v4.2.2 发布说明](./docs/releases/v4.2.2.md)，既有功能见 [v4.0.0 功能说明](./docs/releases/v4.0.0.md)。
 
 ## 为什么是 CF Compass
 
@@ -335,23 +335,32 @@ AI 比赛复盘把比赛结果和提交过程整理成可执行的复盘建议�
 
 <p align="center"><sub>自动化选项界面示意，具体行为由本机设置控制。</sub></p>
 
+## 从原仓库迁移
+
+原仓库 `Binah-Dev/cf-compass` 及其 GitHub 账号已被删除，v4.3.4 及更早版本内置的 Windows 更新源随之失效，应用内检查更新会失败。
+
+- 从本仓库 [Latest Release](https://github.com/lkrkerry1/cf-compass/releases/latest) 手动下载对应平台安装包，直接覆盖安装即可。
+- 应用 ID、安装 GUID 和用户数据目录保持不变，题库缓存、笔记、题单与设置会保留；迁移前建议先在「数据中心 → 导出全部数据」保存备份。
+- 从 v4.3.5 起更新源已切换到 `lkrkerry1/cf-compass`，后续 Windows 安装版可继续在应用内更新；Linux AppImage / `.deb` 与 macOS 包仍需手动替换。
+- 旧安装包与旧 Release 已随原仓库消失，只能从本仓库重新下载。
+
 ## 快速开始
 
 ### 下载桌面版本
 
-打开 [Latest Release](https://github.com/lkrkerry1/cf-compass/releases/latest)，按设备下载。v4.3.4 提供六个程序包和三项更新数据：
+打开 [Latest Release](https://github.com/lkrkerry1/cf-compass/releases/latest)，按设备下载。v4.3.5 提供六个程序包和三项更新数据：
 
 | 平台或用途 | 文件 |
 | --- | --- |
-| Windows x64（推荐安装版） | `CF-Compass-4.3.4-Windows-x64-Setup.exe` |
-| Windows x64（便携版） | `CF-Compass-4.3.4-Windows-x64-portable.exe` |
-| Windows 安装版更新数据 | `CF-Compass-4.3.4-Windows-x64-Setup.exe.blockmap` |
+| Windows x64（推荐安装版） | `CF-Compass-4.3.5-Windows-x64-Setup.exe` |
+| Windows x64（便携版） | `CF-Compass-4.3.5-Windows-x64-portable.exe` |
+| Windows 安装版更新数据 | `CF-Compass-4.3.5-Windows-x64-Setup.exe.blockmap` |
 | Windows 稳定版更新元数据 | `latest.yml` |
-| Linux x64 AppImage | `CF-Compass-4.3.4-x86_64.AppImage` |
-| Linux AppImage 更新数据 | `CF-Compass-4.3.4-x86_64.AppImage.zsync` |
-| Linux Debian x64 | `CF-Compass-4.3.4-Linux-amd64.deb` |
-| macOS Intel | `CF-Compass-4.3.4-macOS-x64.dmg` |
-| macOS Apple 芯片 | `CF-Compass-4.3.4-macOS-arm64.dmg` |
+| Linux x64 AppImage | `CF-Compass-4.3.5-x86_64.AppImage` |
+| Linux AppImage 更新数据 | `CF-Compass-4.3.5-x86_64.AppImage.zsync` |
+| Linux Debian x64 | `CF-Compass-4.3.5-Linux-amd64.deb` |
+| macOS Intel | `CF-Compass-4.3.5-macOS-x64.dmg` |
+| macOS Apple 芯片 | `CF-Compass-4.3.5-macOS-arm64.dmg` |
 
 `.blockmap`、`latest.yml` 和 `.zsync` 供更新工具读取，不是程序包，也无需手动运行。Release 不附带独立 `.sha256` 或 `SHA256SUMS.txt` 文件。
 
@@ -367,7 +376,7 @@ v4.2.2 及更早 Windows 版本需先手动下载并安装 v4.3.1 的 `Setup.exe
 
 ### Linux 升级
 
-v4.2.1 及更早 AppImage 没有标准更新信息，需从 Release **手动下载当前 v4.3.4**。从 v4.2.2 起，稳定版 AppImage 嵌入更新目标，外部 AppImageUpdate 等工具可利用同一 Release 中匹配的 `.AppImage.zsync` 查找后续稳定版本；`.zsync` 是更新数据，不是另一个安装包，也不需要手动运行。AppImage 版本不在应用内自动检查、下载或安装更新。
+v4.2.1 及更早 AppImage 没有标准更新信息，需从 Release **手动下载当前 v4.3.5**。从 v4.2.2 起，稳定版 AppImage 嵌入更新目标，外部 AppImageUpdate 等工具可利用同一 Release 中匹配的 `.AppImage.zsync` 查找后续稳定版本；`.zsync` 是更新数据，不是另一个安装包，也不需要手动运行。AppImage 版本不在应用内自动检查、下载或安装更新。
 
 元数据和本地重构验证不能代替真实的公网跨版本升级验证。使用上述 Ubuntu 24.04 固定路径安装方式时，先在用户可写目录用外部工具更新副本，再由管理员安装到固定路径，不要以 root 身份运行更新工具的图形界面。`.deb` 用户下载新版 `.deb` 后用系统包管理器覆盖安装。升级前可在数据中心导出重要数据，已有用户数据与本地素材配置继续沿用。
 
@@ -376,13 +385,13 @@ v4.2.1 及更早 AppImage 没有标准更新信息，需从 Release **手动下�
 最新版 Release 不再附带单独的 `.sha256` 或 `SHA256SUMS.txt` 文件，减少下载列表中的重复条目。需要核对时，可将 GitHub 在安装包资产下显示的 SHA-256 摘要与本机计算结果比较。例如 Windows 可在 PowerShell 中运行：
 
 ```powershell
-Get-FileHash -Algorithm SHA256 .\CF-Compass-4.3.4-Windows-x64-Setup.exe
+Get-FileHash -Algorithm SHA256 .\CF-Compass-4.3.5-Windows-x64-Setup.exe
 ```
 
 Linux 可运行：
 
 ```bash
-sha256sum CF-Compass-4.3.4-x86_64.AppImage
+sha256sum CF-Compass-4.3.5-x86_64.AppImage
 ```
 
 macOS 可运行 `shasum -a 256 <文件名>`，与 GitHub 资产下显示的摘要比较。
