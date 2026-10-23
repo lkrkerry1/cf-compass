@@ -1,4 +1,4 @@
-# AGENT.md
+# AGENTS.md
 
 > 给在本仓库工作的 AI 编程代理（Codex / Claude / Copilot / 其他自动化代理）的作业说明。
 > 人类贡献者请先读 [CONTRIBUTING.md](./CONTRIBUTING.md)；用户文档见 [README.md](./README.md)。
@@ -9,12 +9,17 @@ CF Compass 是一个**本地优先**的 Codeforces / OI / ICPC 训练桌面应�
 
 ## 1. 仓库现状（重要）
 
-- 当前版本：**v4.3.4**。
+- 当前版本：**v4.3.5**。
 - 本仓库是原项目 `Binah-Dev/cf-compass` 的社区延续版。原仓库及原作者 GitHub 账号已于 2026 年 10 月被删除，代码基于公开 fork 保留的 v4.3.4。
-- 维护分支：`main`；远程：
+- 维护分支：`main`（稳定/发布）与 `dev`（集成）；远程：
   - `origin` → `lkrkerry1/cf-compass`（**唯一可写**，推送目标）
   - `upstream` → `lorgarbr/cf-compass`（历史来源，只读参考，**不要推送**）
   - `archive` → `Binah-Dev/cf-compass`（已失效，仅留档）
+- 分支与合并流程：
+  - `main`：只接受来自 `dev` 的合并和 tag 发布，不直接开发。
+  - `dev`：集成分支，接受 `feat-<topic>` / `fix-<topic>` / `chore-<topic>` 分支的 PR。
+  - 流程：`main` → 创建 `dev` → 从 `dev` 开功能分支 → PR 合入 `dev` → PR 合入 `main` → 在 `main` 打 tag 发布 → 发布后把 `main` 同步回 `dev`。
+  - PR 必须通过 CI `verify` 才能合并；合并后删除功能分支。
 - 保留原作者署名与 MIT 许可；不要删除 README 里的来源说明、`CREDITS.md` 和 `LICENSE`。
 - `docs/releases/*`、`docs/appimage-acceptance.md` 等属于**历史记录**，其中指向原仓库/旧 issue/旧 CI 的链接保持原样，不要批量"修复"。
 
@@ -90,7 +95,9 @@ pnpm qa:i18n
 
 发布相关的已知边界：
 
-- Windows 自动更新仅支持安装版（NSIS），源固定为本仓库 GitHub 稳定发布。
+- 本仓库的 tag push 可能不触发 Actions；未触发时可改用 `gh workflow run build.yml --ref vX.Y.Z`（ref 为 tag 时 release job 仍会执行）。
+- 仓库内还没有任何已发布稳定版时，上一版本升级验证会明确跳过并在日志中记录；之后的稳定版继续执行该验证。
+- Windows 自动更新仅支持安装版（NSIS），源固定为本仓库 GitHub 稳定发布；v4.3.4 及更早版本的旧更新源已失效，需手动迁移。
 - AppImage 使用外部工具（AppImageUpdate 等）的 `.zsync`，应用内不检查更新。
 - macOS 为 ad-hoc 签名，未公证。
 
