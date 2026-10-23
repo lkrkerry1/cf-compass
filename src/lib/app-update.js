@@ -1,6 +1,6 @@
 import packageInfo from "../../package.json";
 
-const RELEASE_PAGE = "https://github.com/Binah-Dev/cf-compass/releases";
+const RELEASE_PAGE = "https://github.com/lkrkerry1/cf-compass/releases";
 const unsupportedState = () => ({
   supported: false,
   reason: window.cfBridge ? "bridge-unavailable" : "browser",

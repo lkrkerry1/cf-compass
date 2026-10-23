@@ -4,7 +4,7 @@ import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-export const stableUpdateInformation = "gh-releases-zsync|Binah-Dev|cf-compass|latest|CF-Compass-*-x86_64.AppImage.zsync";
+export const stableUpdateInformation = "gh-releases-zsync|lkrkerry1|cf-compass|latest|CF-Compass-*-x86_64.AppImage.zsync";
 
 export function resolveAppImageUpdateChannel(version, environment = process.env) {
   assert.match(version || "", /^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/, "Expected packaged version");
@@ -17,7 +17,7 @@ export function resolveAppImageUpdateChannel(version, environment = process.env)
     assert.ok(ref.startsWith("refs/heads/"), "Stable update preview must run on a branch, not a release tag");
   }
   if (preview !== "1" && !/^refs\/tags\/v\d+\.\d+\.\d+$/.test(ref)) return "none";
-  assert.equal(environment.GITHUB_REPOSITORY, "Binah-Dev/cf-compass", "The stable update channel is only valid for Binah-Dev/cf-compass");
+  assert.equal(environment.GITHUB_REPOSITORY, "lkrkerry1/cf-compass", "The stable update channel is only valid for lkrkerry1/cf-compass");
   assert.match(version, /^\d+\.\d+\.\d+$/, "Stable update channel requires a stable version");
   return "stable";
 }

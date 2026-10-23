@@ -5,8 +5,8 @@ const { createRequire } = require("node:module");
 const APP_ID = "com.cfcompass.desktop";
 const PRODUCT_NAME = "CF Compass";
 const INSTALL_MARKER = "cf-compass-nsis-install";
-const RELEASE_URL = "https://github.com/Binah-Dev/cf-compass/releases";
-const UPDATE_PROVIDER = Object.freeze({ provider: "github", owner: "Binah-Dev", repo: "cf-compass", private: false, channel: "latest" });
+const RELEASE_URL = "https://github.com/lkrkerry1/cf-compass/releases";
+const UPDATE_PROVIDER = Object.freeze({ provider: "github", owner: "lkrkerry1", repo: "cf-compass", private: false, channel: "latest" });
 let updaterRequire;
 function dependency(name) {
   if (!updaterRequire) updaterRequire = createRequire(require.resolve("electron-updater"));

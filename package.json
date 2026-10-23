@@ -10,13 +10,13 @@
   },
   "license": "MIT",
   "description": "A local-first training, review, and contest analysis companion for OI, ICPC, Codeforces, and competitive programmers.",
-  "homepage": "https://github.com/Binah-Dev/cf-compass#readme",
+  "homepage": "https://github.com/lkrkerry1/cf-compass#readme",
   "bugs": {
-    "url": "https://github.com/Binah-Dev/cf-compass/issues"
+    "url": "https://github.com/lkrkerry1/cf-compass/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Binah-Dev/cf-compass.git"
+    "url": "git+https://github.com/lkrkerry1/cf-compass.git"
   },
   "main": "electron/main.cjs",
   "type": "module",
@@ -103,7 +103,7 @@
       "signExecutable": false,
       "publish": {
         "provider": "github",
-        "owner": "Binah-Dev",
+        "owner": "lkrkerry1",
         "repo": "cf-compass",
         "private": false,
         "releaseType": "release"

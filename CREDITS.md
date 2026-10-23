@@ -2,6 +2,10 @@
 
 CF Compass 的界面、应用图标、三套主题色和主要功能代码为本项目原创实现。
 
+## 项目来源
+
+CF Compass 最初由 Binah 开发并发布于 `Binah-Dev/cf-compass`（2026 年 8 月至 10 月，MIT License）。原仓库及其 GitHub 账号已于 2026 年 10 月被删除；本仓库基于公开 fork 保留的 v4.3.4 代码继续维护，原始代码与设计的版权归原作者所有。
+
 ## 数据与服务
 
 - 题目、比赛、提交与 Rating 数据来自 Codeforces 公开 API。

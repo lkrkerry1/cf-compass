@@ -16,7 +16,7 @@ const builderRequire = createRequire(require.resolve("electron-builder"));
 const { generateAppRunScript } = builderRequire("app-builder-lib/out/targets/appimage/appImageUtil.js");
 const launcherConfig = { ExecutableName: "cf-compass", ProductName: "CF Compass", ProductFilename: "CF Compass", DesktopFileName: "cf-compass.desktop", ResourceName: "appimagekit-cf-compass" };
 const previewEnvironment = {
-  GITHUB_REPOSITORY: "Binah-Dev/cf-compass",
+  GITHUB_REPOSITORY: "lkrkerry1/cf-compass",
   GITHUB_EVENT_NAME: "workflow_dispatch",
   GITHUB_REF: "refs/heads/codex/appimage-acceptance",
   CF_COMPASS_APPIMAGE_STABLE_UPDATE_PREVIEW: "1",
@@ -25,7 +25,7 @@ const previewEnvironment = {
 test("non-release builds default to no update channel; stable tags require the official repository and matching version", () => {
   assert.equal(resolveAppImageUpdateChannel("4.2.2", {}), "none");
   assert.equal(resolveAppImageUpdateChannel("4.2.2", { ...previewEnvironment, CF_COMPASS_APPIMAGE_STABLE_UPDATE_PREVIEW: "0" }), "none");
-  const stable = { GITHUB_REF: "refs/tags/v4.2.2", GITHUB_REPOSITORY: "Binah-Dev/cf-compass" };
+  const stable = { GITHUB_REF: "refs/tags/v4.2.2", GITHUB_REPOSITORY: "lkrkerry1/cf-compass" };
   assert.equal(resolveAppImageUpdateChannel("4.2.2", stable), "stable");
   assert.equal(resolveAppImageUpdateChannel("4.2.2-rc.1", { ...stable, GITHUB_REF: "refs/tags/v4.2.2-rc.1" }), "none");
   assert.throws(() => resolveAppImageUpdateChannel("4.2.1", stable), /tag does not match/);
@@ -255,7 +255,7 @@ test("AppStream screenshot matches the immutable demo asset and packaged desktop
   assert.ok(metadata.includes(`<id>${pkg.build.appId}</id>`));
   assert.ok(metadata.includes(`<launchable type="desktop-id">${pkg.desktopName}</launchable>`));
   assert.equal(pkg.build.linux.syncDesktopName, true);
-  assert.match(metadata, /<screenshot type="default">\s*<image type="source" width="1500" height="940">https:\/\/raw\.githubusercontent\.com\/Binah-Dev\/cf-compass\/[a-f0-9]{40}\/docs\/screenshots\/appimage-workbench\.png<\/image>/);
+  assert.match(metadata, /<screenshot type="default">\s*<image type="source" width="1500" height="940">https:\/\/raw\.githubusercontent\.com\/lkrkerry1\/cf-compass\/[a-f0-9]{40}\/docs\/screenshots\/appimage-workbench\.png<\/image>/);
   const screenshot = await readFile(path.join(root, "docs/screenshots/appimage-workbench.png"));
   assert.equal(screenshot.subarray(0, 8).toString("hex"), "89504e470d0a1a0a");
   assert.deepEqual([screenshot.readUInt32BE(16), screenshot.readUInt32BE(20)], [1500, 940]);

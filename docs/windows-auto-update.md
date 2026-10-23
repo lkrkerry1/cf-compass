@@ -14,15 +14,15 @@ Failed checks or downloads leave the current application and local data intact. 
 
 Portable builds, unpacked directories, development, browsers, and other platforms provide a manual download link. Eligibility checks require Windows x64, a packaged app, no portable environment, the dedicated installer-written marker, and the expected uninstaller beside the executable. `app.isPackaged` alone is insufficient. Moving or copying an installation may invalidate detection; rerun the installer.
 
-v4.3.1 首次提供 Windows 安装版内置更新。v4.2.2 及更早版本没有此入口，也没有 Windows 更新元数据；需要先从 [本仓库稳定发布页](https://github.com/Binah-Dev/cf-compass/releases/latest) 手动安装一次 v4.3.1 的 `Setup.exe`，之后才能通过此入口获取后续稳定版。
+v4.3.1 首次提供 Windows 安装版内置更新。v4.2.2 及更早版本没有此入口，也没有 Windows 更新元数据；需要先从 [本仓库稳定发布页](https://github.com/lkrkerry1/cf-compass/releases/latest) 手动安装一次 v4.3.1 的 `Setup.exe`，之后才能通过此入口获取后续稳定版。
 
-v4.3.1 introduces in-app updates for Windows installer editions. Windows v4.2.2 and older have no updater or Windows update metadata. First manually install the v4.3.1 `Setup.exe` from the [official stable release page](https://github.com/Binah-Dev/cf-compass/releases/latest); the in-app updater can then obtain later stable releases.
+v4.3.1 introduces in-app updates for Windows installer editions. Windows v4.2.2 and older have no updater or Windows update metadata. First manually install the v4.3.1 `Setup.exe` from the [official stable release page](https://github.com/lkrkerry1/cf-compass/releases/latest); the in-app updater can then obtain later stable releases.
 
 ## 来源与校验 / Source and verification
 
-更新源固定为 `Binah-Dev/cf-compass` 的公开 GitHub 稳定发布。界面不能设置任意下载服务器，不需要 GitHub 令牌，也不上传训练记录。只接受比当前版本新的正式 `x.y.z` 版本，以及对应的 Windows x64 `Setup.exe`；预发布、降级、便携包和 NSIS Web 安装包不用于本入口。
+更新源固定为 `lkrkerry1/cf-compass` 的公开 GitHub 稳定发布。界面不能设置任意下载服务器，不需要 GitHub 令牌，也不上传训练记录。只接受比当前版本新的正式 `x.y.z` 版本，以及对应的 Windows x64 `Setup.exe`；预发布、降级、便携包和 NSIS Web 安装包不用于本入口。
 
-The source is fixed to public stable GitHub releases for `Binah-Dev/cf-compass`. The UI cannot configure another server. No GitHub token is required, and training records are not uploaded. Only newer stable `x.y.z` versions and their matching Windows x64 `Setup.exe` are accepted. Prereleases, downgrades, portable executables, and NSIS web installers are excluded.
+The source is fixed to public stable GitHub releases for `lkrkerry1/cf-compass`. The UI cannot configure another server. No GitHub token is required, and training records are not uploaded. Only newer stable `x.y.z` versions and their matching Windows x64 `Setup.exe` are accepted. Prereleases, downgrades, portable executables, and NSIS web installers are excluded.
 
 `electron-updater` 按 `latest.yml` 中的 SHA-512 验证下载文件。它能发现传输损坏或文件与元数据不匹配，不能证明发布者身份：如果发布仓库或元数据同时被控制，攻击者也能替换摘要。当前没有商业 Authenticode 签名证书，未配置 `publisherName` 时不执行证书发布者校验；不会将其描述为“已认证发布者”，也不使用恒成功的自定义签名验证器。Windows SmartScreen 或管理员权限提示仍可能出现。依据是锁定版本的 [NSIS updater 源码](https://github.com/electron-userland/electron-builder/blob/electron-builder%4026.15.3/packages/electron-updater/src/NsisUpdater.ts) 与 [v26 更新说明](https://www.electron.build/v26/docs/features/auto-update/)。
 

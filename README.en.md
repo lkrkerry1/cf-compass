@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/build/icon.png" width="108" alt="CF Compass icon" />
+  <img src="build/icon.png" width="108" alt="CF Compass icon" />
 </p>
 
 <h1 align="center">CF Compass</h1>
@@ -9,9 +9,11 @@
   Find the right problem, train with purpose, review what fades, and turn every contest into evidence.
 </p>
 
+> **About this repository**: This project is forked from `Binah-Dev/cf-compass` by the original author Binah. The original repository and its GitHub account were deleted in October 2026. This repository continues from the v4.3.4 code preserved in a public fork, keeping the original attribution and MIT license (see [LICENSE](./LICENSE)). It remains unaffiliated with Codeforces.
+
 <p align="center">
-  <a href="https://github.com/Binah-Dev/cf-compass/actions/workflows/build.yml"><img src="https://github.com/Binah-Dev/cf-compass/actions/workflows/build.yml/badge.svg" alt="Build" /></a>
-  <a href="https://github.com/Binah-Dev/cf-compass/releases/latest"><img src="https://img.shields.io/github/v/release/Binah-Dev/cf-compass?display_name=tag&sort=semver" alt="Latest release" /></a>
+  <a href="https://github.com/lkrkerry1/cf-compass/actions/workflows/build.yml"><img src="https://github.com/lkrkerry1/cf-compass/actions/workflows/build.yml/badge.svg" alt="Build" /></a>
+  <a href="https://github.com/lkrkerry1/cf-compass/releases/latest"><img src="https://img.shields.io/github/v/release/lkrkerry1/cf-compass?display_name=tag&sort=semver" alt="Latest release" /></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-2ea44f.svg" alt="MIT License" /></a>
   <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-0078D4" alt="Windows Linux macOS" />
   <img src="https://img.shields.io/badge/Language-简体中文%20%7C%20English-38BDF8" alt="Simplified Chinese and English" />
@@ -22,15 +24,16 @@
 </p>
 
 <p align="center">
-  <strong><a href="https://github.com/Binah-Dev/cf-compass/releases/latest">Download for Windows, Linux, or macOS</a></strong>
+  <strong><a href="https://github.com/lkrkerry1/cf-compass/releases/latest">Download for Windows, Linux, or macOS</a></strong>
 </p>
 
-![CF Compass problem dashboard](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/dashboard-sky.png)
+![CF Compass problem dashboard](docs/screenshots/dashboard-sky.png)
 
-## Current release: v4.3.3
+## Current release: v4.3.4
 
-v4.3.3 adds the Study Plan timer while retaining Custom Training and Windows installer updates. Download it from [Latest Release](https://github.com/Binah-Dev/cf-compass/releases/latest).
+v4.3.4 fixes the virtual-score failure caused by ±1-second timestamp rounding (#45) and retains the Study Plan timer, Custom Training, and Windows installer updates. Download it from [Latest Release](https://github.com/lkrkerry1/cf-compass/releases/latest).
 
+- **Virtual-score fix**: CF absolute and relative submission timestamps may differ by one rounded second. Validation and scoring now share the absolute time, so affected virtual sessions can be recalculated from **Contest Replay → Virtual participation**. See the [v4.3.4 release notes](./docs/releases/v4.3.4.md).
 - Open **Study Plan → Timer** for a separate stopwatch, countdown, or target-time window. Only target-time mode plays a bounded default bell or local audio. See [Study timer](./docs/study-timer.md) for usage and recovery limits.
 - Compose a timed session from the problem library, favorites, or study plan, inspect previous attempts, and choose the problem order. Starting locks the selection; sessions and the absolute countdown survive restart.
 - Hide tags and ratings independently during training and in results. Synchronization matches the bound account, complete problem ID, and session submission window. Custom sessions never enter official or combined estimated Rating.
@@ -50,7 +53,7 @@ Ubuntu / Debian users should prefer `.deb`. On Ubuntu 24.04 hosts that restrict 
 | One learning record | Use the same notes and target list from the problem set, daily training, reviews, contests, and recommendations. |
 | Customizable workbench | Hide, restore, and reorder rail items; choose a UI scale; and review contests in a full-page layout. |
 
-See the [v4.3.3 release notes](./docs/releases/v4.3.3.md), the historical Linux validation in [v4.2.2](./docs/releases/v4.2.2.md), and the complete [v4.0.0 feature notes](./docs/releases/v4.0.0.md).
+See the [v4.3.4 release notes](./docs/releases/v4.3.4.md), the historical Linux validation in [v4.2.2](./docs/releases/v4.2.2.md), and the complete [v4.0.0 feature notes](./docs/releases/v4.0.0.md).
 
 ## Why CF Compass?
 
@@ -79,7 +82,7 @@ CF Compass now provides a complete **简体中文 / English interface switch**. 
 - Dates, numbers, dynamic counters, status messages, search fields, and accessibility labels follow the selected locale.
 - Official Codeforces problem names, local template filenames, template summaries, and user notes remain in their original language; CF Compass never machine-translates user-authored content without permission.
 
-![CF Compass English interface](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/dashboard-en.png)
+![CF Compass English interface](docs/screenshots/dashboard-en.png)
 
 <p align="center"><sub>English UI with fictional demo data and no private device paths</sub></p>
 
@@ -93,7 +96,7 @@ CF Compass turns a public problem archive into a problem set that is relevant to
 
 ### Daily training — convert goals into a plan you can execute
 
-![CF Compass daily training](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/today-training.png)
+![CF Compass daily training](docs/screenshots/today-training.png)
 
 The daily plan is split into three adjustable bands:
 
@@ -105,27 +108,27 @@ You can regenerate one band without throwing away the entire plan. Due reviews, 
 
 ### Review library — make AC the beginning, not the end
 
-![CF Compass review library](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/review-library.png)
+![CF Compass review library](docs/screenshots/review-library.png)
 
 Save mistakes, upsolving targets, and worthwhile problems to a spaced-review queue. Attach local notes, rate each review as difficult/mastered/easy, and filter the library by tags, rating, favorite state, first AC, or repeated AC.
 
 #### Review timeline
 
-![CF Compass review timeline](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/review-timeline.png)
+![CF Compass review timeline](docs/screenshots/review-timeline.png)
 
 The timeline reconstructs training by day. Each entry keeps the problem, rating, tags, first accepted time, latest accepted time, and AC count together. It helps reveal long-unvisited topics and difficult problems that still have only one successful attempt.
 
 ### Contest replay — turn a rating change into actionable evidence
 
-![CF Compass contest replay overview](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/contest-replay.png)
+![CF Compass contest replay overview](docs/screenshots/contest-replay.png)
 
 <p align="center"><sub>Original replay overview from an earlier UI, retained to illustrate the contest list and results summary. The screenshots below show the unified layout in development.</sub></p>
 
-![CF Compass official contest replay](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/contest-replay-official-en.png)
+![CF Compass official contest replay](docs/screenshots/contest-replay-official-en.png)
 
 <p align="center"><sub>Official contests: consistent session metrics with official rank and Rating changes. Fictional test data.</sub></p>
 
-![CF Compass virtual contest replay](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/contest-replay-virtual-en.png)
+![CF Compass virtual contest replay](docs/screenshots/contest-replay-virtual-en.png)
 
 <p align="center"><sub>Virtual contests: the same layout and problem actions, with session estimates and reference placement explicitly separated from official results. Synthetic data illustrates the interface, not prediction accuracy.</sub></p>
 
@@ -143,7 +146,7 @@ AI contest review turns contest results and submission history into actionable r
 - The feature is off by default and does not run during automatic sync. AI output is a review aid only; it does not replace official Codeforces results or modify notes, review feedback, or training plans automatically.
 - Recommendation candidates come from the locally synced Codeforces problem set. Hard filters remove contest originals, solved, already planned, duplicate, and invalid candidates before the UI shows the problem, difficulty, and recommendation evidence. Saving, annotating, or adding a target remains an explicit user action.
 
-![CF Compass source-assisted contest review](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/contest-ai-diff.png)
+![CF Compass source-assisted contest review](docs/screenshots/contest-ai-diff.png)
 
 ### Global notes and target list — give “later” a real home
 
@@ -154,7 +157,7 @@ AI contest review turns contest results and submission history into actionable r
 
 ### Contest center — search the past and choose the next contest
 
-![CF Compass contest center](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/contest-center.png)
+![CF Compass contest center](docs/screenshots/contest-center.png)
 
 Search contests by name or ID and combine time, status, type, and participation filters. CF Compass recognizes Div.1–Div.4, Educational, Global, ICPC, and special formats, then shows duration, scale, your participation state, and a rating-aware training suggestion.
 
@@ -162,17 +165,17 @@ Contest Center answers “what should I join next?” Contest Replay answers “
 
 ### Local template library — source code with meaning attached
 
-![CF Compass template library](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/template-library.png)
+![CF Compass template library](docs/screenshots/template-library.png)
 
 Choose an existing algorithm-template directory and CF Compass builds a lightweight local index without copying or uploading your source files. Search by name, summary, relative path, category, or language; adjust classifications; and open the original file directly in VS Code.
 
-![CF Compass readable template summary](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/template-summary.png)
+![CF Compass readable template summary](docs/screenshots/template-summary.png)
 
 Each template can carry a compact readable reference: problem idea, input, output, key constraints, use cases, core approach, and complexity. The formatter normalizes sections, spacing, common inequalities, powers, subscripts, multiplication signs, and scientific notation so the summary stays readable instead of leaking raw LaTeX commands.
 
 ### Data center — your training history belongs to you
 
-![CF Compass data center](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/data-center.png)
+![CF Compass data center](docs/screenshots/data-center.png)
 
 - Incremental sync downloads only new submissions and reuses a valid problem-set cache.
 - Notes, reviews, settings, favorites, and training history remain on the computer.
@@ -195,7 +198,7 @@ Switch between all time, one year, three months, one month, two weeks, or a cust
 
 ## Three original themes
 
-![CF Compass theme picker](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/theme-picker.png)
+![CF Compass theme picker](docs/screenshots/theme-picker.png)
 
 The public edition includes three original CSS themes and does not depend on third-party character art:
 
@@ -207,17 +210,17 @@ The public edition includes three original CSS themes and does not depend on thi
 
 Optional local PNG, JPG, WebP, MP4, or WebM backgrounds can be imported through **Appearance → Local characters and backgrounds**. These files stay in the local application-data directory and are never bundled with the repository or synced online. See the [optional asset guide](./docs/OPTIONAL_CHARACTER_ASSETS.md) and [appearance guide](./docs/APPEARANCE_GUIDE.md) for sources, license boundaries, and controls.
 
-![CF Compass optional local asset library](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/optional-character-assets-local-library.png)
+![CF Compass optional local asset library](docs/screenshots/optional-character-assets-local-library.png)
 
 <p align="center"><sub>Local asset library illustration. Third-party character art is supplied locally by the user; original assets are not bundled with the repository or installers.</sub></p>
 
 ### Appearance and automation controls
 
-![CF Compass appearance and background visibility controls](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/appearance-controls-visibility.png)
+![CF Compass appearance and background visibility controls](docs/screenshots/appearance-controls-visibility.png)
 
 <p align="center"><sub>Appearance and background visibility controls from an earlier version. These existing screenshots use the Chinese interface; current controls may differ.</sub></p>
 
-![CF Compass automation controls](https://raw.githubusercontent.com/Binah-Dev/cf-compass/main/docs/screenshots/appearance-controls-automation.png)
+![CF Compass automation controls](docs/screenshots/appearance-controls-automation.png)
 
 <p align="center"><sub>Automation options are controlled by local settings.</sub></p>
 
@@ -226,19 +229,19 @@ Optional local PNG, JPG, WebP, MP4, or WebM backgrounds can be imported through 
 
 ### Desktop downloads
 
-Open [Latest Release](https://github.com/Binah-Dev/cf-compass/releases/latest) and choose the v4.3.3 package for your device. The release contains six packages and three update assets:
+Open [Latest Release](https://github.com/lkrkerry1/cf-compass/releases/latest) and choose the v4.3.4 package for your device. The release contains six packages and three update assets:
 
 | Platform or purpose | File |
 | --- | --- |
-| Windows x64 (recommended installer) | `CF-Compass-4.3.3-Windows-x64-Setup.exe` |
-| Windows x64 (portable) | `CF-Compass-4.3.3-Windows-x64-portable.exe` |
-| Windows installer update data | `CF-Compass-4.3.3-Windows-x64-Setup.exe.blockmap` |
+| Windows x64 (recommended installer) | `CF-Compass-4.3.4-Windows-x64-Setup.exe` |
+| Windows x64 (portable) | `CF-Compass-4.3.4-Windows-x64-portable.exe` |
+| Windows installer update data | `CF-Compass-4.3.4-Windows-x64-Setup.exe.blockmap` |
 | Windows stable update metadata | `latest.yml` |
-| Linux x64 AppImage | `CF-Compass-4.3.3-x86_64.AppImage` |
-| Linux AppImage update data | `CF-Compass-4.3.3-x86_64.AppImage.zsync` |
-| Linux Debian x64 | `CF-Compass-4.3.3-Linux-amd64.deb` |
-| macOS Intel | `CF-Compass-4.3.3-macOS-x64.dmg` |
-| macOS Apple Silicon | `CF-Compass-4.3.3-macOS-arm64.dmg` |
+| Linux x64 AppImage | `CF-Compass-4.3.4-x86_64.AppImage` |
+| Linux AppImage update data | `CF-Compass-4.3.4-x86_64.AppImage.zsync` |
+| Linux Debian x64 | `CF-Compass-4.3.4-Linux-amd64.deb` |
+| macOS Intel | `CF-Compass-4.3.4-macOS-x64.dmg` |
+| macOS Apple Silicon | `CF-Compass-4.3.4-macOS-arm64.dmg` |
 
 The `.blockmap`, `latest.yml`, and `.zsync` files are read by update tools, not separate applications to run. No standalone `.sha256` or `SHA256SUMS.txt` files are attached.
 
@@ -254,7 +257,7 @@ Windows v4.2.2 and older require one manual installation of the v4.3.1 `Setup.ex
 
 ### Linux upgrades
 
-AppImages from v4.2.1 and older have no standard update metadata, so **download the current v4.3.3 manually** from Releases. Stable AppImages starting with v4.2.2 embed an update target for external tools such as AppImageUpdate, which use the adjacent `.AppImage.zsync` release asset to locate later stable versions. The sidecar is update data, not another installer, and does not need to be run. AppImage editions do not automatically check for, download or install updates inside the app.
+AppImages from v4.2.1 and older have no standard update metadata, so **download the current v4.3.4 manually** from Releases. Stable AppImages starting with v4.2.2 embed an update target for external tools such as AppImageUpdate, which use the adjacent `.AppImage.zsync` release asset to locate later stable versions. The sidecar is update data, not another installer, and does not need to be run. AppImage editions do not automatically check for, download or install updates inside the app.
 
 Metadata checks and local reconstruction do not establish that a live public cross-version upgrade has succeeded. With the Ubuntu 24.04 fixed-path installation above, update a copy in a user-writable directory first, then have an administrator install it at the fixed path; do not run an updater GUI as root. For `.deb`, download the newer package and upgrade through the system package manager. Existing user data and local asset settings are retained; export important data from Data Center before upgrading.
 
@@ -271,7 +274,7 @@ The public build is currently unsigned because the project does not own a commer
 Requirements: Windows, Linux, or macOS; Node.js 22; pnpm 11.19.0; and Git.
 
 ```powershell
-git clone https://github.com/Binah-Dev/cf-compass.git
+git clone https://github.com/lkrkerry1/cf-compass.git
 cd cf-compass
 corepack enable
 pnpm install --frozen-lockfile

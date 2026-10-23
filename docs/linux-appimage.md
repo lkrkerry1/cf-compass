@@ -12,7 +12,7 @@ This procedure grants user namespace permission only through a profile attached 
 
 An administrator should review this exception. Keep both the installed file and its directory owned by root and not writable by ordinary users: AppArmor matches the path, not a signature or hash of the file. Use `/opt/cf-compass` only for this installation. If that directory or the profile below already belongs to another managed installation, have its administrator reconcile the configuration first.
 
-1. Download the official AppImage from [CF Compass Releases](https://github.com/Binah-Dev/cf-compass/releases), check its origin and available integrity information, and install it at the fixed path. Replace `VERSION` with the downloaded version and run these commands from its download directory:
+1. Download the official AppImage from [CF Compass Releases](https://github.com/lkrkerry1/cf-compass/releases), check its origin and available integrity information, and install it at the fixed path. Replace `VERSION` with the downloaded version and run these commands from its download directory:
 
    ```bash
    sudo install -d -o root -g root -m 0755 /opt/cf-compass

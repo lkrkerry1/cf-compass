@@ -212,7 +212,7 @@ async function download() {
   assert.equal(await test("app-update-notes").locator("img").count(), 0);
   assert.equal(await page.evaluate(() => window.__updaterXss), undefined);
   const feed = (await calls()).feed;
-  assert.equal(feed.owner, "Binah-Dev");
+  assert.equal(feed.owner, "lkrkerry1");
   assert.equal(feed.repo, "cf-compass");
   await screenshot("01-chinese-available");
   steps.push({ name: "Single in-flight check, fixed feed, inert release notes" });
@@ -304,7 +304,7 @@ async function download() {
     for (const id of ["app-update-check", "app-update-auto-check", "app-update-download", "app-update-install"])
       assert.equal(await test(id).count(), 0, `${reason} exposed ${id}`);
     await test("app-update-release").click();
-    assert.deepEqual((await calls()).urls, ["https://github.com/Binah-Dev/cf-compass/releases"]);
+    assert.deepEqual((await calls()).urls, ["https://github.com/lkrkerry1/cf-compass/releases"]);
     const disabledActions = await page.evaluate(() => Promise.all([
       window.cfBridge.checkAppUpdate(), window.cfBridge.downloadAppUpdate(), window.cfBridge.installAppUpdate(),
     ]));

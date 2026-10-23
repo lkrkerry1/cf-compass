@@ -2514,7 +2514,7 @@ app.whenReady().then(async () => {
   // The renderer supplies actions only. The update provider is fixed in the main process.
   const updater = updateEligibility.supported
     ? new (require("electron-updater").NsisUpdater)({
-        provider: "github", owner: "Binah-Dev", repo: "cf-compass",
+        provider: "github", owner: "lkrkerry1", repo: "cf-compass",
         private: false, releaseType: "release",
       })
     : null;
@@ -2534,7 +2534,7 @@ app.whenReady().then(async () => {
         if (!window.isDestroyed()) window.webContents.send("app-update:changed", value);
       }
     },
-    openExternal: () => shell.openExternal("https://github.com/Binah-Dev/cf-compass/releases"),
+    openExternal: () => shell.openExternal("https://github.com/lkrkerry1/cf-compass/releases"),
   });
   await appUpdateService.init();
   handleTrusted("app-update:get", () => appUpdateService.get());

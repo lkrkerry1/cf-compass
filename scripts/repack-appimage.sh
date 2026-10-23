@@ -88,7 +88,7 @@ appstreamcli validate --no-net "$appdir/$metadata_relative"
 # system installation layout rather than electron-builder's root desktop entry.
 args=(--runtime-file "$runtime" --comp zstd --file-url "$name" --no-appstream)
 if [[ "$update_channel" == stable ]]; then
-  update_info='gh-releases-zsync|Binah-Dev|cf-compass|latest|CF-Compass-*-x86_64.AppImage.zsync'
+  update_info='gh-releases-zsync|lkrkerry1|cf-compass|latest|CF-Compass-*-x86_64.AppImage.zsync'
   if ! command -v zsyncmake >/dev/null || ! command -v zsync >/dev/null; then
     echo 'Stable releases require zsyncmake and zsync to create and verify the update sidecar.' >&2
     exit 1
