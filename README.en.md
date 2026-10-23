@@ -29,9 +29,9 @@
 
 ![CF Compass problem dashboard](docs/screenshots/dashboard-sky.png)
 
-## Current release: v4.3.4
+## Current release: v4.3.5
 
-v4.3.4 fixes the virtual-score failure caused by ±1-second timestamp rounding (#45) and retains the Study Plan timer, Custom Training, and Windows installer updates. Download it from [Latest Release](https://github.com/lkrkerry1/cf-compass/releases/latest).
+v4.3.5 is the first formal release of this repository. The code is identical to v4.3.4, including the virtual-score ±1-second timestamp fix (#45); this release adds release-pipeline and migration documentation. Download it from [Latest Release](https://github.com/lkrkerry1/cf-compass/releases/latest).
 
 - **Virtual-score fix**: CF absolute and relative submission timestamps may differ by one rounded second. Validation and scoring now share the absolute time, so affected virtual sessions can be recalculated from **Contest Replay → Virtual participation**. See the [v4.3.4 release notes](./docs/releases/v4.3.4.md).
 - Open **Study Plan → Timer** for a separate stopwatch, countdown, or target-time window. Only target-time mode plays a bounded default bell or local audio. See [Study timer](./docs/study-timer.md) for usage and recovery limits.
@@ -53,7 +53,7 @@ Ubuntu / Debian users should prefer `.deb`. On Ubuntu 24.04 hosts that restrict 
 | One learning record | Use the same notes and target list from the problem set, daily training, reviews, contests, and recommendations. |
 | Customizable workbench | Hide, restore, and reorder rail items; choose a UI scale; and review contests in a full-page layout. |
 
-See the [v4.3.4 release notes](./docs/releases/v4.3.4.md), the historical Linux validation in [v4.2.2](./docs/releases/v4.2.2.md), and the complete [v4.0.0 feature notes](./docs/releases/v4.0.0.md).
+This release has no functional changes. See the [v4.3.5 release notes](./docs/releases/v4.3.5.md) for details and the earlier [v4.3.4 release notes](./docs/releases/v4.3.4.md) for the virtual-score fix. The historical Linux validation is in [v4.2.2](./docs/releases/v4.2.2.md), and the complete feature notes are in [v4.0.0](./docs/releases/v4.0.0.md).
 
 ## Why CF Compass?
 
@@ -224,24 +224,33 @@ Optional local PNG, JPG, WebP, MP4, or WebM backgrounds can be imported through 
 
 <p align="center"><sub>Automation options are controlled by local settings.</sub></p>
 
+## Migrating from the original repository
+
+The original repository `Binah-Dev/cf-compass` and its GitHub account were deleted, so the Windows update feed embedded in v4.3.4 and older no longer exists and in-app update checks fail.
+
+- Manually download the installer for your platform from this repository's [Latest Release](https://github.com/lkrkerry1/cf-compass/releases/latest) and install it over the old version.
+- The app ID, installer GUID, and user-data directory are unchanged, so the problem cache, notes, lists, and settings are retained. Export a full backup from Data Center before migrating.
+- Starting with v4.3.5 the update feed points to `lkrkerry1/cf-compass`, so Windows installer editions can use in-app updates again; AppImage / `.deb` and macOS packages remain manual updates.
+- Old installers and releases disappeared with the original repository; download them again from this repository.
+
 ## Quick start
 
 
 ### Desktop downloads
 
-Open [Latest Release](https://github.com/lkrkerry1/cf-compass/releases/latest) and choose the v4.3.4 package for your device. The release contains six packages and three update assets:
+Open [Latest Release](https://github.com/lkrkerry1/cf-compass/releases/latest) and choose the v4.3.5 package for your device. The release contains six packages and three update assets:
 
 | Platform or purpose | File |
 | --- | --- |
-| Windows x64 (recommended installer) | `CF-Compass-4.3.4-Windows-x64-Setup.exe` |
-| Windows x64 (portable) | `CF-Compass-4.3.4-Windows-x64-portable.exe` |
-| Windows installer update data | `CF-Compass-4.3.4-Windows-x64-Setup.exe.blockmap` |
+| Windows x64 (recommended installer) | `CF-Compass-4.3.5-Windows-x64-Setup.exe` |
+| Windows x64 (portable) | `CF-Compass-4.3.5-Windows-x64-portable.exe` |
+| Windows installer update data | `CF-Compass-4.3.5-Windows-x64-Setup.exe.blockmap` |
 | Windows stable update metadata | `latest.yml` |
-| Linux x64 AppImage | `CF-Compass-4.3.4-x86_64.AppImage` |
-| Linux AppImage update data | `CF-Compass-4.3.4-x86_64.AppImage.zsync` |
-| Linux Debian x64 | `CF-Compass-4.3.4-Linux-amd64.deb` |
-| macOS Intel | `CF-Compass-4.3.4-macOS-x64.dmg` |
-| macOS Apple Silicon | `CF-Compass-4.3.4-macOS-arm64.dmg` |
+| Linux x64 AppImage | `CF-Compass-4.3.5-x86_64.AppImage` |
+| Linux AppImage update data | `CF-Compass-4.3.5-x86_64.AppImage.zsync` |
+| Linux Debian x64 | `CF-Compass-4.3.5-Linux-amd64.deb` |
+| macOS Intel | `CF-Compass-4.3.5-macOS-x64.dmg` |
+| macOS Apple Silicon | `CF-Compass-4.3.5-macOS-arm64.dmg` |
 
 The `.blockmap`, `latest.yml`, and `.zsync` files are read by update tools, not separate applications to run. No standalone `.sha256` or `SHA256SUMS.txt` files are attached.
 
@@ -257,7 +266,7 @@ Windows v4.2.2 and older require one manual installation of the v4.3.1 `Setup.ex
 
 ### Linux upgrades
 
-AppImages from v4.2.1 and older have no standard update metadata, so **download the current v4.3.4 manually** from Releases. Stable AppImages starting with v4.2.2 embed an update target for external tools such as AppImageUpdate, which use the adjacent `.AppImage.zsync` release asset to locate later stable versions. The sidecar is update data, not another installer, and does not need to be run. AppImage editions do not automatically check for, download or install updates inside the app.
+AppImages from v4.2.1 and older have no standard update metadata, so **download the current v4.3.5 manually** from Releases. Stable AppImages starting with v4.2.2 embed an update target for external tools such as AppImageUpdate, which use the adjacent `.AppImage.zsync` release asset to locate later stable versions. The sidecar is update data, not another installer, and does not need to be run. AppImage editions do not automatically check for, download or install updates inside the app.
 
 Metadata checks and local reconstruction do not establish that a live public cross-version upgrade has succeeded. With the Ubuntu 24.04 fixed-path installation above, update a copy in a user-writable directory first, then have an administrator install it at the fixed path; do not run an updater GUI as root. For `.deb`, download the newer package and upgrade through the system package manager. Existing user data and local asset settings are retained; export important data from Data Center before upgrading.
 

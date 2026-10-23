@@ -458,8 +458,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $previousTag = gh release view --json tagName --jq .tagName
-          if ($LASTEXITCODE -ne 0 -or $previousTag -notmatch '^v\d+\.\d+\.\d+$') { throw 'Cannot resolve the previous stable release.' }
+          $releases = gh release list --exclude-drafts --limit 50 --json tagName,isPrerelease | ConvertFrom-Json
+          $stableReleases = @($releases | Where-Object { -not $_.isPrerelease -and $_.tagName -match '^v\d+\.\d+\.\d+$' })
+          if ($stableReleases.Count -eq 0) {
+            Write-Host 'No previous published stable release; skipping previous-stable upgrade verification for the first release.'
+            exit 0
+          }
+          $previousTag = $stableReleases[0].tagName
           $previousVersion = $previousTag.TrimStart('v')
           $version = (Get-Content -LiteralPath package.json -Raw | ConvertFrom-Json).version
           if ([Version]$previousVersion -ge [Version]$version) { throw 'The previous stable release must be older than the candidate.' }
